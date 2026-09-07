@@ -52,6 +52,10 @@ See [`docs/future-gui-directions.md`](docs/future-gui-directions.md) for input m
 
 This repo proves the interaction pattern in framework-agnostic code. See [`docs/copilot-studio-implementation-guide.md`](docs/copilot-studio-implementation-guide.md) — a full, self-contained walkthrough anyone can follow to build all 13 of these as native Microsoft Copilot Studio agents, including how to work around common account setup issues.
 
+## Prompt engineering
+
+See [`docs/prompt-engineering-notes.md`](docs/prompt-engineering-notes.md) — a record of the specific prompt design decisions made while building the real, API-connected version of this project, why each one mattered for cost and reliability, and how the same thinking carries over to the Copilot Studio build. See [`docs/prompt-library.md`](docs/prompt-library.md) for the complete, full-length system prompt for every one of the 13 use cases.
+
 ## Architecture
 
 ```
