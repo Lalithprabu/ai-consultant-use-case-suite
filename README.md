@@ -48,6 +48,10 @@ These four are implemented once in `shared/single-app.js` and `shared/engine.js`
 
 See [`docs/future-gui-directions.md`](docs/future-gui-directions.md) for input methods designed for each use case (photo upload, transcript upload, voice-to-text, etc.) but not built, to keep this POC focused.
 
+## From POC to production platform
+
+This repo proves the interaction pattern in framework-agnostic code. See [`docs/copilot-studio-implementation-guide.md`](docs/copilot-studio-implementation-guide.md) — a full, self-contained walkthrough anyone can follow to build all 13 of these as native Microsoft Copilot Studio agents, including how to work around common account setup issues.
+
 ## Architecture
 
 ```
