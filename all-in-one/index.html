@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Consultant Toolkit — Use Case Suite</title>
+  <link rel="stylesheet" href="../shared/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div class="eyebrow">One engine · Multiple business domains</div>
+      <h1>AI Consultant Toolkit</h1>
+      <p class="subtitle">
+        Every use case below runs through the exact same engine
+        (<code>engine.js</code>) — only the configuration changes per domain.
+        Pick one to try it.
+      </p>
+      <div class="why-box" id="whyBox">
+        <div class="why-row"><span class="why-label">The problem</span><span id="whyProblem"></span></div>
+        <div class="why-row"><span class="why-label">Why it helps</span><span id="whyValue"></span></div>
+      </div>
+      <div class="demo-banner">
+        Simulated demo mode — runs entirely in your browser, no API key or server required.
+        <a href="README.md">See how this maps to a real AI implementation →</a>
+      </div>
+    </div>
+
+    <div class="selector-row">
+      <label for="useCaseSelect" class="selector-label">Use case:</label>
+      <select id="useCaseSelect"></select>
+      <span id="domainTag" class="domain-tag"></span>
+    </div>
+
+    <p id="useCaseSubtitle" class="use-case-subtitle"></p>
+
+    <div class="grid">
+      <div class="panel chat-panel">
+        <div class="messages" id="messages"></div>
+        <div class="suggestions" id="suggestions"></div>
+        <div class="input-row">
+          <input id="input" type="text" placeholder="" autocomplete="off" />
+          <button id="sendBtn">Send</button>
+        </div>
+      </div>
+
+      <div class="panel report-panel">
+        <div class="report-header">
+          <span class="report-title">Structured output — auto-drafted</span>
+          <span id="reportBadge" class="badge">0/0 fields</span>
+        </div>
+        <div id="reportFields" class="report-fields"></div>
+        <div class="export-row">
+          <button id="exportJsonBtn" class="export-btn">Export JSON</button>
+          <button id="exportCsvBtn" class="export-btn">Export CSV</button>
+        </div>
+        <button id="resetBtn" class="reset-btn">Reset conversation</button>
+      </div>
+    </div>
+
+    <p class="back-link"><a href="../index.html">← Individual use case pages</a></p>
+  </div>
+
+  <script src="../shared/helpers.js"></script>
+  <script src="../shared/engine.js"></script>
+  <script src="../shared/useCases.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
