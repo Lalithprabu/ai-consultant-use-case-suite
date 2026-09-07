@@ -41,7 +41,7 @@ Once a topic works the way you want, you can **publish** the agent — most real
 
 ## The general recipe
 
-Every one of the 13 assistants below follows the exact same five steps. Once you've done this once, the rest go quickly.
+Every one of the 13 assistants below follows the exact same five steps. Once you've done this once, the rest go quickly. Here's the short version, followed by an exact click-by-click walkthrough using one real example.
 
 1. Create the topic and give it a clear name.
 2. Set its trigger to "the agent chooses," and paste in the description provided below.
@@ -49,11 +49,54 @@ Every one of the 13 assistants below follows the exact same five steps. Once you
 4. Open the test chat panel on the right side of the screen and try the example message provided. Watch it ask a sensible follow-up question.
 5. If something feels off, tweak the topic description or add a sentence to the agent's top-level instructions, then test again.
 
-That's genuinely it. Here's the agent-level instruction template to start every agent with — just fill in the brackets for whichever use case you're building:
+Here's the agent-level instruction template to start every agent with — just fill in the brackets for whichever use case you're building:
 
 > You are an AI assistant for [describe the role — e.g. "field service technicians" or "sales representatives"]. Help them turn a plain-language description into a structured [report/record — e.g. "service report" or "CRM entry"]. Ask one clarifying question at a time, the way an experienced colleague would, until you have enough information. Keep your questions short and practical. Once you have enough, summarize what you've drafted and confirm it's ready.
 
-Now, the 13 use cases.
+### A full worked example, click by click
+
+This walks through building the **Quote drafting assistant** from a completely blank agent, using the actual current Copilot Studio interface. Every other use case in this guide follows these exact same clicks — only the name, description, and variables change.
+
+**Create the agent**
+1. Go to `copilotstudio.microsoft.com` and sign in.
+2. On the home page, find the box that says "Describe your agent to create it." Type something like: *"An assistant that helps sales reps draft quote outlines from a description of the deal."*
+3. Copilot Studio will generate a starting name and instructions for you automatically. Review what it wrote — you can edit both right away, or come back to them later.
+4. Give it a clearer name if you'd like, such as "Sales Assistant," then continue past the setup screen into the main workspace.
+
+**Set the agent's instructions**
+5. In the left-hand navigation, find the agent's **Overview** or **Instructions** section (this is the top-level personality/behavior area, separate from any one topic).
+6. Paste in the instructions template from earlier in this guide, filled in for Sales: *"You are an AI assistant for sales representatives. Help them turn a plain-language description into a structured quote outline. Ask one clarifying question at a time, the way an experienced colleague would, until you have enough information. Keep your questions short and practical. Once you have enough, summarize what you've drafted and confirm it's ready."*
+7. Save.
+
+**Create the topic**
+8. In the left-hand navigation, go to **Topics**. (If your version of Copilot Studio shows **Skills** instead of **Topics**, that's a newer interface using the same underlying idea — the steps below still apply conceptually, just look for "Add a skill" instead of "Add a topic.")
+9. Select **Add a topic**, then **From blank**. A blank authoring canvas appears with a single Trigger node on it.
+10. Hover over the Trigger node and select the **Change trigger** icon (it looks like a small pencil or edit icon on the node).
+11. Choose **"The agent chooses"** as the trigger type.
+12. In the description field that appears, paste: *"Use this when a sales rep describes a deal and wants help drafting a quote outline."*
+13. Rename the topic itself to "Draft Quote" — there's usually a topic name field near the top of the canvas or in a side panel.
+
+**Add the output variables**
+14. Look for a **Details** or **Variables** panel for the topic — this is usually a side panel or a tab near the topic canvas, and it's where you define what information this topic needs to collect.
+15. Add a new variable named `Customer`, type **Text**.
+16. Repeat for `Scope` (Text), `Timeline` (Text), `PricingTier` (Choice — you'll be able to type in the options Basic, Standard, Premium, Enterprise), and `Status` (Choice — Draft, Ready).
+17. Save the topic.
+
+**Test it**
+18. On the right-hand side of the screen, there should be a **Test** panel (sometimes you need to click a "Test" button to open it if it's not already visible).
+19. Type exactly: *"Customer is Acme Manufacturing, needs a 3-month rollout of the new monitoring dashboard across 4 sites"*
+20. Watch what happens. The agent should recognize this matches your "Draft Quote" topic, pull out what it can (likely Customer, Scope, and Timeline), and ask you something sensible about whatever's still missing — most likely the pricing tier or status.
+21. Keep replying naturally and watch it fill in the rest. If a question feels awkward or it asks for something oddly, go back to your topic description or variable names and make them clearer, then test again.
+
+**Publish it**
+22. Once you're happy with how it behaves, find the **Publish** button, usually top-right of the screen.
+23. After publishing, go to the **Channels** section to connect it somewhere people can actually use it — Microsoft Teams is the most realistic choice for something like this.
+
+That's the whole process. For every other use case below, repeat steps 8 through 21 as a **new topic inside the same agent** (or a new agent entirely, if you'd rather keep them separate) — just swap in that use case's topic name, description, and variables.
+
+**For a visual walkthrough of these same steps**, Microsoft's own "Create your first agent in Copilot Studio" video (findable by that exact title on Microsoft Learn's site or YouTube) covers this end-to-end, including the parts about instructions, publishing, and analytics that this guide doesn't go into detail on.
+
+Now, the 13 use cases. For each one, repeat the same clicks above — just swap in the topic name, description, and variables given.
 
 ---
 
